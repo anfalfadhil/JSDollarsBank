@@ -1,9 +1,10 @@
 const express = require("express");
 const userModel = require("./Models/Customer.js");
 const app = express();
+const router = express.Router();
 
 
-app.post("/register", async (request, response) => {
+router.post("/register", async (request, response) => {
     const user = new userModel(request.body);
   
     try {
@@ -15,7 +16,11 @@ app.post("/register", async (request, response) => {
 });
 
 
-app.get("/users", async (request, response) => {
+router.get('/', (req, res) => {
+    res.send('Hello World');
+  });
+
+router.get("/users", async (request, response) => {
     const users = await userModel.find({});
   
     try {
@@ -25,4 +30,4 @@ app.get("/users", async (request, response) => {
     }
   });
 
-  module.exports = app;
+  module.exports = router;

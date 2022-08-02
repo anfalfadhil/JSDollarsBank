@@ -52,7 +52,7 @@ const Transaction = require("./Models/Transaction");
 // Middleware configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(Router);
 
 
 app.listen(4000, () => {
