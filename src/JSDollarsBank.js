@@ -1,20 +1,23 @@
+import register from "./Register.js"
+
 console.log("Hello Dollars")
 
 
-const {MongoClient} = require("mongodb")
+const {MongoClient} = import("mongodb")
 
 async function main () {
-    const uri="mongodb+srv://mongodb22:mongodb22@cluster0.pc6ddwv.mongodb.net/?retryWrites=true&w=majority"
-    const client = new MongoClient(uri);  
-    try {
-        await client.connect();
-        createDbs(client);
-        await listDatabases(client);
-    } catch (e) {
-        console.log(e)
-    } finally {
-        await client.close();
-    }
+    // const uri="mongodb+srv://mongodb22:mongodb22@cluster0.pc6ddwv.mongodb.net/?retryWrites=true&w=majority"
+    // const client = new MongoClient(uri);  
+    // try {
+    //     await client.connect();
+    //     // createDbs(client);
+    //     // await listDatabases(client);
+    //     await register(client)
+    // } catch (e) {
+    //     console.log(e)
+    // } finally {
+    //     await client.close();
+    // }
     
 
 
@@ -40,3 +43,4 @@ function createDbs (client) {
     console.log("Collection is created!");
     });
 }
+
