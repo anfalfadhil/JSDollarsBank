@@ -20,4 +20,6 @@
 
 }
 
-export default register;
+module.exports = {
+    register
+  };

@@ -1,19 +1,10 @@
+
 const express = require("express");
 const app = express();
-const Router = require("./routes")
+const Router = require("./routes.js")
 const mongoose = require("mongoose");
 // const cors = require("cors");
 
-const MONGODB_URI ="mongodb+srv://mongodb22:mongodb22@cluster0.pc6ddwv.mongodb.net/?retryWrites=true&w=majority"
-
-
-
-
-
-const username = "mongodb22";
-const password = "mongodb22";
-const cluster = "Cluster0";
-const dbname = "jsdollarsbank";
 
 
 
@@ -45,15 +36,15 @@ mongoose.connection.once("open", () => {
 
 
 // Importing Schemas
-const Customer = require("./Models/Customer");
-const Transaction = require("./Models/Transaction");
+const Customer = import("./Models/Customer.js");
+const Transaction = import("./Models/Transaction.js");
 
 
 // Middleware configuration
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(Router);
-
+// app.post("/transaction", authenticateToken)
 
 app.listen(4000, () => {
   console.log('app listening on port 4000');
